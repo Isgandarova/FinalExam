@@ -1,0 +1,82 @@
+﻿
+@model IEnumerable<OurPortifolio>
+<div class="col-lg-12 stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <div style="display:flex; justify-content:space-between">
+               
+                <h4 class="card-title">Table with contextual classes</h4>
+                <a class="btn btn-outline-info btn-icon-text" asp-action="create" asp-controller="ourportifolio">
+                    Create
+                 
+                </a>
+            </div>
+        
+            
+            <div class="table-responsive pt-3">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                           
+                            <th>
+                               Image Url
+                            </th>
+                            <th>
+                                Title
+                            </th>
+                            <th>
+                                Category
+                            </th>
+                            <th>
+                                Created At
+                            </th>
+                            <th>
+                                Updated At
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach(var item in Model)
+                        {
+                            <tr class="table-info">
+                                <td>
+                                    <img src="@item.ImageUrl" alt="Alternate Text" />
+                                </td>
+                                <td>
+                                 @item.Title
+                                </td>
+                                <td>
+                                    @item.Category
+                                </td>
+                                <td>
+                                    @item.CreatedAt
+                                </td>
+                                <td>
+                              @item.UpdatedAt
+                                </td>
+                                <td>
+                                    <a class="btn btn-outline-success btn-icon-text" asp-action="update" asp-controller="ourportifolio" asp-route-id="@item.Id">
+                                    
+                                        Update
+                                    </a>
+                                </td>
+
+                                <td>
+                                    <a  class="btn btn-outline-danger btn-icon-text" asp-action="delete" asp-controller="ourportifolio" asp-route-id="@item.Id">
+                                       
+                                        Delete
+                                    </a>
+                                </td>
+
+
+                            </tr>
+
+                        }
+
+                      
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
